@@ -41,7 +41,7 @@ namespace MarsRoverInterface
 
         private void GetInputFromFile(string path)
         {
-            RawUserInputs = File.ReadAllLines(path);
+            RawUserInputs = File.ReadAllLines(path).Where(i => !string.IsNullOrWhiteSpace(i)).ToArray();
 
             if (!RawUserInputs.Any())
             {
